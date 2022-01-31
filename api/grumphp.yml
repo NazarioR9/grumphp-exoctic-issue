@@ -1,0 +1,51 @@
+# grumphp.yml
+grumphp:
+    git_hook_variables:
+        EXEC_GRUMPHP_COMMAND: 'docker exec -t app_php'
+    ignore_unstaged_changes: true
+    process_timeout: 120
+    fixer:
+        enabled: true
+        fix_by_default: false
+    tasks:
+        composer:
+            strict: false
+        git_blacklist:
+            match_word: true
+            keywords:
+                - 'dd('
+                - 'die('
+                - 'var_dump('
+                - 'exit;'
+                - 'exit('
+                - 'dump('
+            whitelist_patterns:
+                - /^src\/(.*)/
+        git_commit_message:
+            enforce_capitalized_subject: false
+            max_body_width: 0
+            max_subject_width: 72
+            allow_empty_message: false
+            type_scope_conventions:
+                types:
+                    - build
+                    - ci
+                    - chore
+                    - docs
+                    - feat
+                    - fix
+                    - perf
+                    - refactor
+                    - revert
+                    - style
+                    - test
+                scopes: []
+        securitychecker_local:
+            run_always: true
+        yamllint:
+            parse_custom_tags: true
+    environment:
+        variables:
+            GRUMPHP_BIN_DIR: "bin/dev"
+        paths:
+            - /usr/local/bin

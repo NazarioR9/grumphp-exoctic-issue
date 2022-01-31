@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS `api`;
+CREATE DATABASE IF NOT EXISTS `api_test`;
+
+CREATE USER 'api-platform'@'%' IDENTIFIED BY '!ChangeMe!';
+GRANT ALL PRIVILEGES ON *.* TO 'api-platform'@'%';

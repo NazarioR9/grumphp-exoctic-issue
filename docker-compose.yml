@@ -1,0 +1,17 @@
+# docker-compose.yaml
+version: "3.4"
+
+services:
+  app_grumphp:
+    build:
+      context: ./api
+      target: api_platform_php
+    container_name: app_grumphp
+    restart: unless-stopped
+    volumes:
+      - ./api:/srv/api:rw,cached
+      - ./.git:/srv/api/.git:rw,cached       # grumphp requirement
+      - ./.github:/srv/api/.github:rw,cached # grumphp requirement
+      - ./api/var:/srv/api/var:rw
+    environment:
+      APP_ENV: dev
