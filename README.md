@@ -1,7 +1,7 @@
 # Grumphp-exoctic-issue
 
 How to reproduce the issue:
-* Open tour cmd and run `make init`
+* Open your cmd and run `make init`
 * Run `docker-compose exec app_grumphp vendor/bin/grumphp run`
 
 You should now have the following error:
