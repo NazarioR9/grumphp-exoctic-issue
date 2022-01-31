@@ -1,4 +1,4 @@
-init: build start install
+init: build start
 
 start:
 	@docker-compose up -d

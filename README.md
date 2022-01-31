@@ -1,4 +1,4 @@
-# Grumphp-exoctic-issue
+# Grumphp-exotic-issue
 
 How to reproduce the issue:
 * Open your cmd and run `make init`
